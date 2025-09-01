@@ -1,0 +1,45 @@
+USE escola;
+create table Alunos_Dificuldades (
+id int auto_increment primary key,
+nome varchar(100),
+idade int,
+curso varchar(50)
+);
+insert into Alunos_Dificuldades (nome, idade, curso)
+values ('Ana Silva', 14, 'Matemática'),
+('João Santos', 15, 'Português'),
+('Maria Oliveira', 13, 'Ciências'),
+('Pedro Lima', 16, 'História');
+-- Exercícios:
+-- 1. Liste todos os alunos da tabela.
+select * from Alunos_Dificuldades;
+-- 2. Liste apenas os nomes e cursos dos alunos.
+select nome, curso from Alunos_Dificuldades;
+-- 3. Liste o nome e a idade dos alunos que têm idade maior que 14.
+select nome, idade from Alunos_Dificuldades where idade > 14;
+-- 4. Liste os alunos que estão no curso de Matemática.
+select * from Alunos_Dificuldades where curso = 'Matemática';
+-- Update:
+-- 5. Pedro Lima mudou de curso para Geografia. Atualize o registro.
+update Alunos_Dificuldades
+set curso = 'Geografia'
+where id = 4;
+select * from Alunos_Dificuldades;
+-- 6. João Santos fez aniversário e agora tem 16 anos. Atualize a idade.
+update Alunos_Dificuldades
+set idade = 16
+where id = 2;
+select * from Alunos_Dificuldades;
+-- Delete:
+-- 7. Maria Oliveira se transferiu para outra escola. Delete o registro dela.
+delete from Alunos_Dificuldades
+where id = 3;
+select * from Alunos_Dificuldades;
+-- 8. Delete todos os alunos que têm idade menor que 15 anos.
+delete from Alunos_Dificuldades
+where idade < 15;
+select * from Alunos_Dificuldades;
+-- Como ativar o safe mode?
+SET SQL_SAFE_UPDATES = 1;
+-- Como destivar o safe mode?
+SET SQL_SAFE_UPDATES = 0;
